@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  frontend:
+    build: .
+    ports:
+      - "3035:3000"
+      - "24678:24678"
+    command: npm run dev
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+    environment:
+      NUXT_HOST: "0.0.0.0"
+
+volumes:
+  node_modules:
